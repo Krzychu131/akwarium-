@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-
+import '../global.css';
 import { EditScreenInfo } from './EditScreenInfo';
 
 type ScreenContentProps = {

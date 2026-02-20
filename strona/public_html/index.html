@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>ciecz1</title>
+<style>
+/* Twój obecny design pozostaje bez zmian */
+body {
+    font-family: Arial;
+    background: #5c76df;
+    text-align: left;
+    padding-top: 50px;
+    padding-right: 50px;
+}
+h1 {
+    color: #000000;
+    text-align: center;
+}
+.sensors-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    max-width: 1600px;
+}
+.liquid-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.sensor-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+.sensor-field input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.sensor-field input:focus {
+    outline: none;
+    border-color: #0077aa;
+}
+.save-indicator {
+    color: #28a745;
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.save-indicator.show {
+    opacity: 1;
+}
+.general-table-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.general-table-container h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+.general-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.general-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.general-table td:first-child {
+    font-weight: bold;
+    color: #333;
+    width: 40%;
+}
+.general-table input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.general-table input:focus {
+    outline: none;
+    border-color: #0077aa;
+}
+</style>
+</head>
+<body>
+<div class="sensors-row">
+    <!-- Ciecz 1 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 1</h2>
+        <div class="sensor-field">
+            <label for="sensor1">Czujnik 1 - Odległość (mm):</label>
+            <input type="number" id="sensor1" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator1">Zapisano ✓</div>
+            <label for="setting1">ustawienie podawania:</label>
+            <input type="text" id="setting1" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 2 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 2</h2>
+        <div class="sensor-field">
+            <label for="sensor2">Czujnik 2 - Odległość (mm):</label>
+            <input type="number" id="sensor2" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator2">Zapisano ✓</div>
+            <label for="setting2">ustawienie podawania:</label>
+            <input type="text" id="setting2" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 3 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 3</h2>
+        <div class="sensor-field">
+            <label for="sensor3">Czujnik 3 - Odległość (mm):</label>
+            <input type="number" id="sensor3" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator3">Zapisano ✓</div>
+            <label for="setting3">ustawienie podawania:</label>
+            <input type="text" id="setting3" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 4 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 4</h2>
+        <div class="sensor-field">
+            <label for="sensor4">Czujnik 4 - Odległość (mm):</label>
+            <input type="number" id="sensor4" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator4">Zapisano ✓</div>
+            <label for="setting4">ustawienie podawania:</label>
+            <input type="text" id="setting4" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 5 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 5</h2>
+        <div class="sensor-field">
+            <label for="sensor5">Czujnik 5 - Odległość (mm):</label>
+            <input type="number" id="sensor5" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator5">Zapisano ✓</div>
+            <label for="setting5">ustawienie podawania:</label>
+            <input type="text" id="setting5" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 6 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 6</h2>
+        <div class="sensor-field">
+            <label for="sensor6">Czujnik 6 - Odległość (mm):</label>
+            <input type="number" id="sensor6" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator6">Zapisano ✓</div>
+            <label for="setting6">ustawienie podawania:</label>
+            <input type="text" id="setting6" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+</div>
+
+<!-- Kalibracja -->
+<div class="liquid-container" style="max-width: 500px; margin: 30px auto;">
+    <h2 style="margin-top: 0; color: #333;">Kalibracja</h2>
+    <div class="sensor-field">
+        <label for="ph">pH (kwasowość wody):</label>
+        <input type="number" id="ph" placeholder="Wpisz wartość pH..." inputmode="numeric" step="0.1">
+        <div class="save-indicator" id="indicator-ph">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="gh">GH (twardość całkowita):</label>
+        <input type="number" id="gh" placeholder="Wpisz wartość GH..." inputmode="numeric">
+        <div class="save-indicator" id="indicator-gh">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="kh">KH (twardość węglowa):</label>
+        <input type="number" id="kh" placeholder="Wpisz wartość KH..." inputmode="numeric">
+        <div class="save-indicator" id="indicator-kh">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="no2">NO2 (azotyny):</label>
+        <input type="number" id="no2" placeholder="Wpisz wartość NO2..." inputmode="numeric" step="0.1">
+        <div class="save-indicator" id="indicator-no2">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="no3">NO3 (azotany):</label>
+        <input type="number" id="no3" placeholder="Wpisz wartość NO3..." inputmode="numeric">
+        <div class="save-indicator" id="indicator-no3">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="cl2">CL2 (chlor):</label>
+        <input type="number" id="cl2" placeholder="Wpisz wartość CL2..." inputmode="numeric" step="0.1">
+        <div class="save-indicator" id="indicator-cl2">Zapisano ✓</div>
+    </div>
+</div>
+
+<div class="general-table-container">
+    <h2>Ogólne</h2>
+    <table class="general-table">
+        <tr>
+            <td>Temperatura:</td>
+            <td>
+                <input type="number" id="temperature" placeholder="Wpisz temperaturę..." inputmode="numeric">
+                <div class="save-indicator" id="indicator-temp">Zapisano ✓</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Przepływ:</td>
+            <td>
+                <input type="number" id="flow" placeholder="Wpisz przepływ..." inputmode="numeric">
+                <div class="save-indicator" id="indicator-flow">Zapisano ✓</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+// Śledzenie pól które są aktualnie edytowane (mają focus)
+const focusedFields = new Set();
+const changedFields = new Set();
+
+// Mapowanie pól do kluczy JSON
+const fieldMapping = {
+    'sensor1': 'D1',
+    'sensor2': 'D2',
+    'sensor3': 'D3',
+    'sensor4': 'D4',
+    'sensor5': 'D5',
+    'sensor6': 'D6',
+    'setting1': 'S1',
+    'setting2': 'S2',
+    'setting3': 'S3',
+    'setting4': 'S4',
+    'setting5': 'S5',
+    'setting6': 'S6',
+    'temperature': 'T',
+    'flow': 'V',
+    'ph': 'PH',
+    'gh': 'GH',
+    'kh': 'KH',
+    'no2': 'NO2',
+    'no3': 'NO3',
+    'cl2': 'CL2'
+};
+
+// Funkcja zapisywania danych do serwera
+async function saveData(fieldId, value) {
+    const jsonKey = fieldMapping[fieldId];
+    if (!jsonKey) return;
+
+    try {
+        // Przygotuj tylko zmienione pole do wysłania (POST aktualizuje tylko przekazane wartości)
+        const dataToSave = {};
+        
+        // Pola S1-S6 są stringami, pozostałe są numeryczne
+        if (jsonKey.startsWith('S')) {
+            // Pole tekstowe (ustawienie podawania)
+            if (value === '') {
+                // Usuń pole jeśli jest puste
+                dataToSave[jsonKey] = '';
+            } else {
+                dataToSave[jsonKey] = value;
+            }
+        } else {
+            // Pole numeryczne
+            const numValue = value === '' ? null : parseFloat(value);
+            if (numValue !== null && !isNaN(numValue)) {
+                dataToSave[jsonKey] = numValue;
+            } else if (value === '') {
+                // Usuń pole jeśli jest puste
+                dataToSave[jsonKey] = '';
+            } else {
+                return; // Nieprawidłowa wartość
+            }
+        }
+
+        // Wyślij tylko zmienione pole do serwera (POST aktualizuje tylko przekazane wartości)
+        const saveRes = await fetch("api.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dataToSave)
+        });
+
+        if (saveRes.ok) {
+            const result = await saveRes.json();
+            console.log("Odpowiedź serwera:", result);
+            if (result.success) {
+                // Pokaż wskaźnik zapisu
+                let indicatorId;
+                if (fieldId.startsWith('sensor')) {
+                    indicatorId = 'indicator' + fieldId.replace('sensor', '');
+                } else if (fieldId.startsWith('setting')) {
+                    indicatorId = 'indicator' + fieldId.replace('setting', '');
+                } else {
+                    indicatorId = 'indicator-' + fieldId;
+                }
+                const indicator = document.getElementById(indicatorId);
+                if (indicator) {
+                    indicator.classList.add('show');
+                    setTimeout(() => indicator.classList.remove('show'), 2000);
+                }
+                // Zaktualizuj oryginalną wartość po zapisaniu
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.setAttribute('data-original-value', value);
+                }
+                changedFields.delete(fieldId);
+            } else {
+                console.error("Błąd zapisu:", result);
+                alert("Błąd zapisu: " + result);
+            }
+        } else {
+            const errorText = await saveRes.text();
+            console.error("Błąd HTTP:", saveRes.status, errorText);
+            alert("Błąd zapisu: " + saveRes.status + " - " + errorText);
+        }
+    } catch (e) {
+        console.log("Błąd zapisu danych:", e);
+    }
+}
+
+// Automatyczne uzupełnianie danych z data.json
+async function loadData() {
+    // Nie odświeżaj jeśli jakiekolwiek pole ma focus
+    if (focusedFields.size > 0) {
+        return;
+    }
+
+    try {
+        const res = await fetch("data.json?x=" + Date.now());
+        if (!res.ok) return;
+        const d = await res.json();
+
+        // Aktualizuj tylko pola które nie są edytowane i nie zostały zmienione
+        if (d.D1 != null && !focusedFields.has('sensor1') && !changedFields.has('sensor1')) {
+            document.getElementById("sensor1").value = d.D1;
+        }
+        if (d.D2 != null && !focusedFields.has('sensor2') && !changedFields.has('sensor2')) {
+            document.getElementById("sensor2").value = d.D2;
+        }
+        if (d.D3 != null && !focusedFields.has('sensor3') && !changedFields.has('sensor3')) {
+            document.getElementById("sensor3").value = d.D3;
+        }
+        if (d.D4 != null && !focusedFields.has('sensor4') && !changedFields.has('sensor4')) {
+            document.getElementById("sensor4").value = d.D4;
+        }
+        if (d.D5 != null && !focusedFields.has('sensor5') && !changedFields.has('sensor5')) {
+            document.getElementById("sensor5").value = d.D5;
+        }
+        if (d.D6 != null && !focusedFields.has('sensor6') && !changedFields.has('sensor6')) {
+            document.getElementById("sensor6").value = d.D6;
+        }
+
+        // Ustawienia podawania (S1-S6)
+        if (d.S1 != null && !focusedFields.has('setting1') && !changedFields.has('setting1')) {
+            document.getElementById("setting1").value = d.S1;
+        }
+        if (d.S2 != null && !focusedFields.has('setting2') && !changedFields.has('setting2')) {
+            document.getElementById("setting2").value = d.S2;
+        }
+        if (d.S3 != null && !focusedFields.has('setting3') && !changedFields.has('setting3')) {
+            document.getElementById("setting3").value = d.S3;
+        }
+        if (d.S4 != null && !focusedFields.has('setting4') && !changedFields.has('setting4')) {
+            document.getElementById("setting4").value = d.S4;
+        }
+        if (d.S5 != null && !focusedFields.has('setting5') && !changedFields.has('setting5')) {
+            document.getElementById("setting5").value = d.S5;
+        }
+        if (d.S6 != null && !focusedFields.has('setting6') && !changedFields.has('setting6')) {
+            document.getElementById("setting6").value = d.S6;
+        }
+
+        if (d.T != null && !focusedFields.has('temperature') && !changedFields.has('temperature')) {
+            document.getElementById("temperature").value = d.T;
+        }
+        if (d.V != null && !focusedFields.has('flow') && !changedFields.has('flow')) {
+            document.getElementById("flow").value = d.V;
+        }
+
+        // Pola kalibracji
+        if (d.PH != null && !focusedFields.has('ph') && !changedFields.has('ph')) {
+            document.getElementById("ph").value = d.PH;
+        }
+        if (d.GH != null && !focusedFields.has('gh') && !changedFields.has('gh')) {
+            document.getElementById("gh").value = d.GH;
+        }
+        if (d.KH != null && !focusedFields.has('kh') && !changedFields.has('kh')) {
+            document.getElementById("kh").value = d.KH;
+        }
+        if (d.NO2 != null && !focusedFields.has('no2') && !changedFields.has('no2')) {
+            document.getElementById("no2").value = d.NO2;
+        }
+        if (d.NO3 != null && !focusedFields.has('no3') && !changedFields.has('no3')) {
+            document.getElementById("no3").value = d.NO3;
+        }
+        if (d.CL2 != null && !focusedFields.has('cl2') && !changedFields.has('cl2')) {
+            document.getElementById("cl2").value = d.CL2;
+        }
+
+    } catch (e) {
+        console.log("Błąd odczytu danych JSON:", e);
+    }
+}
+
+// Dodaj event listenery do wszystkich pól input
+function setupFieldListeners() {
+    // Wszystkie pola są edytowalne (odległości, ustawienia podawania, temperatura, przepływ, kalibracja)
+    const editableFields = ['sensor1', 'sensor2', 'sensor3', 'sensor4', 'sensor5', 'sensor6', 'setting1', 'setting2', 'setting3', 'setting4', 'setting5', 'setting6', 'temperature', 'flow', 'ph', 'gh', 'kh', 'no2', 'no3', 'cl2'];
+    
+    // Pola edytowalne - dodaj listenery do zapisu
+    editableFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            // Śledź focus
+            field.addEventListener('focus', () => {
+                focusedFields.add(fieldId);
+            });
+            
+            // Śledź blur i zapisz zmiany
+            field.addEventListener('blur', () => {
+                focusedFields.delete(fieldId);
+                const value = field.value;
+                const originalValue = field.getAttribute('data-original-value');
+                
+                if (value !== originalValue) {
+                    changedFields.add(fieldId);
+                    saveData(fieldId, value);
+                } else {
+                    changedFields.delete(fieldId);
+                }
+            });
+            
+            // Zapisz przy naciśnięciu Enter
+            field.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    field.blur(); // To wywoła zapis przez blur event
+                }
+            });
+        }
+    });
+}
+
+// Odświeżanie danych co 1 sekundę
+setInterval(loadData, 1000);
+loadData();
+
+// Ustaw listenery po załadowaniu strony
+setupFieldListeners();
+
+// Zapisz oryginalne wartości po pierwszym załadowaniu (wszystkie pola)
+setTimeout(() => {
+    const allFields = ['sensor1', 'sensor2', 'sensor3', 'sensor4', 'sensor5', 'sensor6', 'setting1', 'setting2', 'setting3', 'setting4', 'setting5', 'setting6', 'temperature', 'flow', 'ph', 'gh', 'kh', 'no2', 'no3', 'cl2'];
+    allFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.setAttribute('data-original-value', field.value || '');
+        }
+    });
+}, 500);
+</script>
+
+</body>
+</html>

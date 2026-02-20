@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>ciecz1</title>
+<style>
+/* Twój obecny design pozostaje bez zmian */
+body {
+    font-family: Arial;
+    background: #5c76df;
+    text-align: left;
+    padding-top: 50px;
+    padding-right: 50px;
+}
+h1 {
+    color: #000000;
+    text-align: center;
+}
+.sensors-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    max-width: 1600px;
+}
+.liquid-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.sensor-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+.sensor-field input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.sensor-field input:focus {
+    outline: none;
+    border-color: #0077aa;
+}
+.save-indicator {
+    color: #28a745;
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.save-indicator.show {
+    opacity: 1;
+}
+.general-table-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.general-table-container h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+.general-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.general-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.general-table td:first-child {
+    font-weight: bold;
+    color: #333;
+    width: 40%;
+}
+.general-table input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.general-table input:focus {
+    outline: none;
+    border-color: #0077aa;
+}
+</style>
+</head>
+<body>
+<div class="sensors-row">
+    <!-- Ciecz 1 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 1</h2>
+        <div class="sensor-field">
+            <label for="sensor1">Czujnik 1 - Odległość (mm):</label>
+            <input type="number" id="sensor1" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator1">Zapisano ✓</div>
+            <label for="setting1">ustawienie podawania:</label>
+            <input type="text" id="setting1" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 2 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 2</h2>
+        <div class="sensor-field">
+            <label for="sensor2">Czujnik 2 - Odległość (mm):</label>
+            <input type="number" id="sensor2" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator2">Zapisano ✓</div>
+            <label for="setting2">ustawienie podawania:</label>
+            <input type="text" id="setting2" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 3 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 3</h2>
+        <div class="sensor-field">
+            <label for="sensor3">Czujnik 3 - Odległość (mm):</label>
+            <input type="number" id="sensor3" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator3">Zapisano ✓</div>
+            <label for="setting3">ustawienie podawania:</label>
+            <input type="text" id="setting3" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 4 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 4</h2>
+        <div class="sensor-field">
+            <label for="sensor4">Czujnik 4 - Odległość (mm):</label>
+            <input type="number" id="sensor4" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator4">Zapisano ✓</div>
+            <label for="setting4">ustawienie podawania:</label>
+            <input type="text" id="setting4" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 5 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 5</h2>
+        <div class="sensor-field">
+            <label for="sensor5">Czujnik 5 - Odległość (mm):</label>
+            <input type="number" id="sensor5" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator5">Zapisano ✓</div>
+            <label for="setting5">ustawienie podawania:</label>
+            <input type="text" id="setting5" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 6 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 6</h2>
+        <div class="sensor-field">
+            <label for="sensor6">Czujnik 6 - Odległość (mm):</label>
+            <input type="number" id="sensor6" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator6">Zapisano ✓</div>
+            <label for="setting6">ustawienie podawania:</label>
+            <input type="text" id="setting6" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+</div>
+
+<div class="general-table-container">
+    <h2>Ogólne</h2>
+    <table class="general-table">
+        <tr>
+            <td>Temperatura:</td>
+            <td>
+                <input type="number" id="temperature" placeholder="Wpisz temperaturę..." inputmode="numeric">
+                <div class="save-indicator" id="indicator-temp">Zapisano ✓</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Przepływ:</td>
+            <td>
+                <input type="number" id="flow" placeholder="Wpisz przepływ..." inputmode="numeric">
+                <div class="save-indicator" id="indicator-flow">Zapisano ✓</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+// Automatyczne uzupełnianie danych z data.json
+async function loadData() {
+    try {
+        const res = await fetch("data.json?x=" + Date.now());
+        if (!res.ok) return;
+        const d = await res.json();
+
+        if (d.D1 != null) document.getElementById("sensor1").value = d.D1;
+        if (d.D2 != null) document.getElementById("sensor2").value = d.D2;
+        if (d.D3 != null) document.getElementById("sensor3").value = d.D3;
+        if (d.D4 != null) document.getElementById("sensor4").value = d.D4;
+        if (d.D5 != null) document.getElementById("sensor5").value = d.D5;
+        if (d.D6 != null) document.getElementById("sensor6").value = d.D6;
+
+        if (d.T != null) document.getElementById("temperature").value = d.T;
+        if (d.V != null) document.getElementById("flow").value = d.V;
+
+    } catch (e) {
+        console.log("Błąd odczytu danych JSON:", e);
+    }
+}
+
+// Odświeżanie danych co 1 sekundę
+setInterval(loadData, 1000);
+loadData();
+</script>
+
+</body>
+</html>

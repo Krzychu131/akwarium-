@@ -3,36 +3,57 @@
     "name": "akwrium",
     "slug": "akwrium",
     "version": "1.0.0",
-
     "web": {
       "favicon": "./assets/favicon.png"
     },
-
     "experiments": {
       "tsconfigPaths": true
     },
-
-    "plugins": [],
-
+    "plugins": [
+      "react-native-ble-plx",
+      "expo-font"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "Aplikacja potrzebuje dostępu do Bluetooth aby połączyć się z Raspberry Pi i skonfigurować WiFi.",
+        "NSBluetoothPeripheralUsageDescription": "Aplikacja potrzebuje dostępu do Bluetooth aby połączyć się z Raspberry Pi i skonfigurować WiFi.",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "package": "com.krzych3pl.akwrium"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8f70e253-5957-41f9-abe0-12ca4eeeba14"
       }
-    }
+    },
+    "owner": "krzych3pl"
   }
 }

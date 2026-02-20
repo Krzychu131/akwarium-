@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Aqua Filter</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f6f8;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #0077aa;
+        }
+        .sensor-container {
+            max-width: 500px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .sensor-field {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .sensor-field label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        .sensor-field input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .sensor-field input:focus {
+            outline: none;
+            border-color: #0077aa;
+        }
+        .save-indicator {
+            color: #28a745;
+            font-size: 14px;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .save-indicator.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aqua Filter</h1>
+    <div class="sensor-container">
+        <div class="sensor-field">
+            <label for="sensor1">Czujnik 1 - Odległość (mm):</label>
+            <input type="text" id="sensor1" placeholder="Wpisz odległość..." inputmode="numeric" pattern="[0-9]*">
+            <div class="save-indicator" id="indicator1">Zapisano ✓</div>
+        </div>
+        <div class="sensor-field">
+            <label for="sensor2">Czujnik 2 - Odległość (mm):</label>
+            <input type="text" id="sensor2" placeholder="Wpisz odległość..." inputmode="numeric" pattern="[0-9]*">
+            <div class="save-indicator" id="indicator2">Zapisano ✓</div>
+        </div>
+        <div class="sensor-field">
+            <label for="sensor3">Czujnik 3 - Odległość (mm):</label>
+            <input type="text" id="sensor3" placeholder="Wpisz odległość..." inputmode="numeric" pattern="[0-9]*">
+            <div class="save-indicator" id="indicator3">Zapisano ✓</div>
+        </div>
+        <div class="sensor-field">
+            <label for="sensor4">Czujnik 4 - Odległość (mm):</label>
+            <input type="text" id="sensor4" placeholder="Wpisz odległość..." inputmode="numeric" pattern="[0-9]*">
+            <div class="save-indicator" id="indicator4">Zapisano ✓</div>
+        </div>
+        <div class="sensor-field">
+            <label for="sensor5">Czujnik 5- Odległość (mm):</label>
+            <input type="text" id="sensor5" placeholder="Wpisz odległość..." inputmode="numeric" pattern="[0-9]*">
+            <div class="save-indicator" id="indicator5">Zapisano ✓</div>
+        </div>
+        <div class="sensor-field">
+            <label for="sensor6">Czujnik 6 - Odległość (mm):</label>
+            <input type="text" id="sensor6" placeholder="Wpisz odległość..." inputmode="numeric" pattern="[0-9]*">
+            <div class="save-indicator" id="indicator6">Zapisano ✓</div>
+        </div>
+        <div class="sensor-field">
+            <label for="sensor7">Czujnik 7 - Odległość (mm):</label>
+            <input type="text" id="sensor7" placeholder="Wpisz odległość..." inputmode="numeric" pattern="[0-9]*">
+            <div class="save-indicator" id="indicator7">Zapisano ✓</div>
+        </div>  
+    </div>
+
+    <script>
+        // Funkcja do zapisywania wartości do localStorage
+        function saveValue(sensorId, value) {
+            localStorage.setItem('sensor_' + sensorId, value);
+            // Pokaż wskaźnik zapisu
+            const indicator = document.getElementById('indicator' + sensorId);
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+
+        // Funkcja do ładowania wartości z localStorage
+        function loadValue(sensorId) {
+            const savedValue = localStorage.getItem('sensor_' + sensorId);
+            if (savedValue !== null) {
+                document.getElementById('sensor' + sensorId).value = savedValue;
+            }
+        }
+
+        // Funkcja do filtrowania - tylko liczby
+        function allowOnlyNumbers(input) {
+            input.addEventListener('keypress', function(e) {
+                // Zezwól na: cyfry (0-9), Backspace, Delete, Tab, Escape, Enter, strzałki
+                if (!/[0-9]/.test(e.key) && !['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+                    e.preventDefault();
+                }
+            });
+
+            // Zapobiegaj wklejaniu nie-numerycznych wartości
+            input.addEventListener('paste', function(e) {
+                const paste = (e.clipboardData || window.clipboardData).getData('text');
+                if (!/^[0-9]*$/.test(paste)) {
+                    e.preventDefault();
+                }
+            });
+
+            // Usuń nie-numeryczne znaki przy wpisywaniu
+            input.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+        }
+
+        // Załaduj zapisane wartości przy starcie strony
+        loadValue(1);
+        loadValue(2);
+        loadValue(3);
+        loadValue(4);
+        loadValue(5);
+        loadValue(6);
+        loadValue(7);
+
+        // Dodaj walidację tylko liczb dla każdego pola
+        for (let i = 1; i <= 7; i++) {
+            const input = document.getElementById('sensor' + i);
+            allowOnlyNumbers(input);
+            input.addEventListener('input', function() {
+                saveValue(i, this.value);
+            });
+        }
+    </script>
+</body>
+</html>
+
