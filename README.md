@@ -5,10 +5,10 @@ Aplikacja mobilna **Expo / React Native** do obsługi systemu filtracji akwarium
 ## Działanie aplikacji
 
 1. **Ekran główny** — wybór ścieżki: **Połączenie** albo **Urządzenie**.
-2. **Połączenie** (`ConnectionScreen`) — skanowanie i połączenie BLE z urządzeniem (np. Raspberry Pi w trybie konfiguracji Wi‑Fi, nazwa `RPi-WiFi-Setup`). Przez charakterystykę GATT przekazywane są m.in. lista sieci Wi‑Fi, hasło i status połączenia — użytkownik konfiguruje dostęp urządzenia do sieci.
-3. **Urządzenie** (`DeviceScreen`) — odczyt danych z `data.json` na skonfigurowanym serwerze (`http://www.aqua-filter.pl`) oraz zapis zmian przez `api.php`. Interfejs pokazuje m.in. parametry dozowania (D1–D7), opisy (S1–S7), temperaturę, napięcie, parametry wody itd.; część ustawień jest w osobnym panelu **Zawartość akwarium** (`AquariumContentScreen`) — zdjęcia baneru, typ zbiornika, przypomnienia, konfiguracja wyświetlania (m.in. `expo-image-picker` do zdjęć z galerii).
-
-Backend po stronie WWW to prosty **PHP** (`api.php`): odczyt/zapis `data.json`, dozwolone klucze pól zgodne z walidacją w API. W repozytorium jest też kopia pod `strona/public_html/` do wdrożenia na hosting.
+2. **Połączenie** (`ConnectionScreen`) — skanowanie i połączenie BLE z urządzeniem. Przez charakterystykę GATT przekazywane są m.in. lista sieci Wi‑Fi, hasło i status połączenia — użytkownik konfiguruje dostęp urządzenia do sieci.
+3. **Urządzenie** (`DeviceScreen`) — odczyt danych z skonfigurowanego serwera oraz wprowadzanie zmian na nim. W razie problemów aplikacja wysyła powiadomienia
+4. **konfiguracja** (`AquariumContent`)— konfiguracja urządzenia i wysłanie danych na serwer
+Backend po stronie WWW to prosty **PHP** (`api.php`): odczyt/zapis `data.json`
 
 ## Biblioteki (npm)
 
@@ -27,14 +27,8 @@ Backend po stronie WWW to prosty **PHP** (`api.php`): odczyt/zapis `data.json`, 
 | **expo-dev-client** | Development build z natywnymi modułami (np. BLE) |
 | **expo-notifications**, **expo-calendar** | W zależnościach projektu (np. pod przyszłe przypomnienia / kalendarz) |
 
-Dodatkowo używane są moduły **@expo/vector-icons** (ikony w UI).
 
-## Uruchomienie
 
-```bash
-npm install
-npm start
-```
 
 Do pełnego BLE na urządzeniu fizycznym zwykle potrzebny jest build z **expo-dev-client** / EAS — plugin `react-native-ble-plx` jest wpisany w `app.json`.
 
