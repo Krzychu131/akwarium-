@@ -32,7 +32,3 @@ Backend po stronie WWW to prosty **PHP** (`api.php`): odczyt/zapis `data.json`
 
 Do pełnego BLE na urządzeniu fizycznym zwykle potrzebny jest build z **expo-dev-client** / EAS — plugin `react-native-ble-plx` jest wpisany w `app.json`.
 
-## Inne elementy repozytorium
-
-- **`strona/public_html/`** — pliki PHP i `data.json` pod hosting.
-- **`esp32/`** — szkice Arduino (np. testy RGB); nie są częścią samej aplikacji Expo.
