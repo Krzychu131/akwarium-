@@ -27,8 +27,3 @@ Backend po stronie WWW to prosty **PHP** (`api.php`): odczyt/zapis `data.json`
 | **expo-dev-client** | Development build z natywnymi modułami (np. BLE) |
 | **expo-notifications**, **expo-calendar** | W zależnościach projektu (np. pod przyszłe przypomnienia / kalendarz) |
 
-
-
-
-Do pełnego BLE na urządzeniu fizycznym zwykle potrzebny jest build z **expo-dev-client** / EAS — plugin `react-native-ble-plx` jest wpisany w `app.json`.
-
